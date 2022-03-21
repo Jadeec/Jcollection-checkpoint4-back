@@ -26,7 +26,7 @@ public class Media {
     @Column(name = "publishing_date")
     private Date publishingDate;
 
-    @Size( max = 250)
+    @Size(max = 250)
     private String description;
 
     @ManyToOne

@@ -26,7 +26,7 @@ public class MediaController {
 
     //Create media
     @PostMapping()
-    public Media createMedia(@Valid @RequestBody MediaDto mediaDto){
+    public Media createMedia(@Valid @RequestBody MediaDto mediaDto) {
 
         //retrieve type
         Type type = typeRepository.findById(mediaDto.getTypeId())
@@ -46,7 +46,7 @@ public class MediaController {
 
     //get a media
     @GetMapping("/{id}")
-    public Media getMedia(@PathVariable(required = true) Long id){
+    public Media getMedia(@PathVariable(required = true) Long id) {
         Optional<Media> otpMedia = mediaRepository.findById(id);
         if (otpMedia.isPresent()) {
             return otpMedia.get();
@@ -56,13 +56,13 @@ public class MediaController {
 
     //get all medias
     @GetMapping()
-    public List<Media> getMedias(){
-    return mediaRepository.findAll();
+    public List<Media> getMedias() {
+        return mediaRepository.findAll();
     }
 
     //Modify media
     @PutMapping("/{id}")
-    public Media modifyMedia (@PathVariable(required = true) Long id, @Valid MediaDto mediaDto){
+    public Media modifyMedia(@PathVariable(required = true) Long id, @Valid MediaDto mediaDto) {
         Media media = mediaRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         Type type = typeRepository.findById(mediaDto.getTypeId())
@@ -80,7 +80,7 @@ public class MediaController {
 
     //delete media
     @DeleteMapping("/{id}")
-    public void deleteMedia(@PathVariable(required = true) Long id){
+    public void deleteMedia(@PathVariable(required = true) Long id) {
         Media media = mediaRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         mediaRepository.delete(media);

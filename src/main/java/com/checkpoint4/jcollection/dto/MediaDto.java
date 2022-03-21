@@ -20,7 +20,7 @@ public class MediaDto {
 
     private Date publishingDate;
 
-    @Size( max = 250)
+    @Size(max = 250)
     private String description;
 
     @NotNull
