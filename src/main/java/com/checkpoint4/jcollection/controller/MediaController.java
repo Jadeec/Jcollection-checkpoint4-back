@@ -59,4 +59,30 @@ public class MediaController {
     public List<Media> getMedias(){
     return mediaRepository.findAll();
     }
+
+    //Modify media
+    @PutMapping("/{id}")
+    public Media modifyMedia (@PathVariable(required = true) Long id, @Valid MediaDto mediaDto){
+        Media media = mediaRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Type type = typeRepository.findById(mediaDto.getTypeId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        media.setName(mediaDto.getName());
+        media.setArtist(mediaDto.getArtist());
+        media.setGenre(mediaDto.getGenre());
+        media.setPublishingDate(mediaDto.getPublishingDate());
+        media.setDescription(media.getDescription());
+        media.setType(type);
+
+        return mediaRepository.save(media);
+    }
+
+    //delete media
+    @DeleteMapping("/{id}")
+    public void deleteMedia(@PathVariable(required = true) Long id){
+        Media media = mediaRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        mediaRepository.delete(media);
+    }
 }
