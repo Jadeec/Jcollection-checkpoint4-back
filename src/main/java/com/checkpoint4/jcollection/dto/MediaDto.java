@@ -8,7 +8,7 @@ import java.util.Date;
 public class MediaDto {
     @NotBlank
     @Size(min = 3, max = 45)
-    private String name;
+    private String title;
 
     @NotBlank
     @Size(min = 3, max = 120)
@@ -28,12 +28,13 @@ public class MediaDto {
 
     //getter&setter
 
-    public String getName() {
-        return name;
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getArtist() {

@@ -34,7 +34,7 @@ public class MediaController {
 
         //createMedia
         Media media = new Media();
-        media.setName(mediaDto.getName());
+        media.setTitle(mediaDto.getTitle());
         media.setArtist(mediaDto.getArtist());
         media.setGenre(mediaDto.getGenre());
         media.setPublishingDate(mediaDto.getPublishingDate());
@@ -68,7 +68,7 @@ public class MediaController {
         Type type = typeRepository.findById(mediaDto.getTypeId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        media.setName(mediaDto.getName());
+        media.setTitle(mediaDto.getTitle());
         media.setArtist(mediaDto.getArtist());
         media.setGenre(mediaDto.getGenre());
         media.setPublishingDate(mediaDto.getPublishingDate());

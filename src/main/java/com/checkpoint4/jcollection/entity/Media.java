@@ -1,5 +1,4 @@
 package com.checkpoint4.jcollection.entity;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -13,7 +12,7 @@ public class Media {
 
     @NotBlank
     @Size(min = 3, max = 45)
-    private String name;
+    private String title;
 
     @NotBlank
     @Size(min = 3, max = 120)
@@ -50,12 +49,12 @@ public class Media {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getArtist() {

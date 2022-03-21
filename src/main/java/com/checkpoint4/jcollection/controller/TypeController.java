@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/Type")
+@RequestMapping("/types")
 public class TypeController {
     @Autowired
     TypeRepository typeRepository;

@@ -14,7 +14,7 @@ public class Type {
     private Long id;
 
     @NotBlank
-    @Size(min = 3, max = 45)
+    @Size( max = 45)
     private String name;
 
     @JsonIgnore
