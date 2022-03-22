@@ -7,18 +7,16 @@ import java.util.Date;
 
 public class MediaDto {
     @NotBlank
-    @Size(min = 3, max = 45)
+    @Size( min = 1,max = 45)
     private String title;
 
     @NotBlank
-    @Size(min = 3, max = 120)
+    @Size(min = 1, max = 120)
     private String artist;
-
-    @NotBlank
-    @Size(min = 2, max = 45)
+    @Size(min = 1, max = 45)
     private String genre;
 
-    private Date publishingDate;
+    private String publishingDate;
 
     @Size(max = 250)
     private String description;
@@ -53,11 +51,11 @@ public class MediaDto {
         this.genre = genre;
     }
 
-    public Date getPublishingDate() {
+    public String getPublishingDate() {
         return publishingDate;
     }
 
-    public void setPublishingDate(Date publishingDate) {
+    public void setPublishingDate(String publishingDate) {
         this.publishingDate = publishingDate;
     }
 
