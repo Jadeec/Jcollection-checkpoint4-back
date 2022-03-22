@@ -54,7 +54,7 @@ To get a local copy up and running follow these steps.
 
 - MySql
   ```sh
-  Create a database on MySql (database name : 'application properties file')
+  Create a database on MySql and report info into the 'application properties file' (src/main/resources/application.properties)
   ```
    ```sh
   Import the SQL script from the /src/main/resources/sql/checkpoint5Dump.sql file into your database
