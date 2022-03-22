@@ -54,10 +54,14 @@ public class MediaController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
-    //get all medias
-    @GetMapping()
-    public List<Media> getMedias() {
-        return mediaRepository.findAll();
+
+    //get medias by type
+    @GetMapping("type/{id}")
+    public List<Media> getMedias(@PathVariable(required = true) Long id) {
+        Type type = typeRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        return mediaRepository.findMediaByType(type);
     }
 
     //Modify media
