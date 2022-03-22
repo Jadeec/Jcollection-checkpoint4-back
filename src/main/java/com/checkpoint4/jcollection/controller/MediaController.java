@@ -1,6 +1,7 @@
 package com.checkpoint4.jcollection.controller;
 
 import com.checkpoint4.jcollection.dto.MediaDto;
+import com.checkpoint4.jcollection.dto.MediaModifyDto;
 import com.checkpoint4.jcollection.entity.Media;
 import com.checkpoint4.jcollection.entity.Type;
 import com.checkpoint4.jcollection.repository.MediaRepository;
@@ -66,10 +67,8 @@ public class MediaController {
 
     //Modify media
     @PutMapping("/{id}")
-    public Media modifyMedia(@PathVariable(required = true) Long id, @Valid MediaDto mediaDto) {
+    public Media modifyMedia(@PathVariable(required = true) Long id, @Valid @RequestBody MediaModifyDto mediaDto) {
         Media media = mediaRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        Type type = typeRepository.findById(mediaDto.getTypeId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         media.setTitle(mediaDto.getTitle());
@@ -77,7 +76,6 @@ public class MediaController {
         media.setGenre(mediaDto.getGenre());
         media.setPublishingDate(mediaDto.getPublishingDate());
         media.setDescription(media.getDescription());
-        media.setType(type);
 
         return mediaRepository.save(media);
     }
